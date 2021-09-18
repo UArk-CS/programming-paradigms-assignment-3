@@ -11,6 +11,16 @@ public class Brick {
     private int width;
     private int height;
 
+    // Constructor
+    Brick(int x, int y, int w, int h) {
+
+        this.xPos = x;
+        this.yPos = y;
+        this.width = w;
+        this.height = h;
+
+    }
+
     // Getter and Setter methods
     public int getxPos() {
         return xPos;
