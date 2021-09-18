@@ -40,7 +40,7 @@ public class ModelTest {
     @Test
     public void isSuccessfullyAddedToArrayList() {
 
-        assertFalse(model.getBricks.isEmpty());
+        assertFalse(model.getBricks().isEmpty());
 
     }
 
@@ -48,10 +48,10 @@ public class ModelTest {
     @Test
     public void hasCorrectValues() {
 
-        assertEquals(model.getBricks.get(1).getxPos(), b2.getxPos());
-        assertEquals(model.getBricks.get(1).getyPos(), b2.getyPos());
-        assertEquals(model.getBricks.get(1).getWidth(), b2.getWidth());
-        assertEquals(model.getBricks.get(1).getHeight(), b2.getHeight());
+        assertEquals(model.getBricks().get(1).getxPos(), b2.getxPos());
+        assertEquals(model.getBricks().get(1).getyPos(), b2.getyPos());
+        assertEquals(model.getBricks().get(1).getWidth(), b2.getWidth());
+        assertEquals(model.getBricks().get(1).getHeight(), b2.getHeight());
 
     }
 
@@ -59,7 +59,7 @@ public class ModelTest {
     @Test
     public void doesGetBricksWork() {
         
-        assertEquals(model.getBricks.get(0), b1);
+        assertEquals(model.getBricks().get(0), b1);
         
     }
 
