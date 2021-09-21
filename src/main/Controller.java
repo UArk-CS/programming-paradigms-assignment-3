@@ -99,6 +99,19 @@ class Controller implements MouseListener, KeyListener {
                 keyRightArrow = true;
                 break;
 
+            // Save map
+            case KeyEvent.VK_S:
+                System.out.println("Saving map...");
+                model.marshal().save("map.json");
+                break;
+
+            // Load map
+            case KeyEvent.VK_L:
+                System.out.println("Loading map...");
+                Json file = Json.load("map.json");
+                model.unmarshal(file);
+                break;
+
             // If escape key is pressed, exit the program
             case KeyEvent.VK_ESCAPE:
                 System.out.println("Exiting program...");

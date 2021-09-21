@@ -19,6 +19,36 @@ public class Model {
         bricks = new ArrayList<>();
     }
 
+    // Marshal Model obj
+    Json marshal() {
+
+        Json obj = Json.newObject();
+
+        obj.add("cameraPos", cameraPos);
+
+        Json tmplist = Json.newList();
+        obj.add("bricks", tmplist);
+        for (int i = 0; i < bricks.size(); i++) {
+            tmplist.add(bricks.get(i).marshal());
+        }
+
+        return obj;
+
+    }
+
+    // Unmarshal Model obj
+    void unmarshal(Json obj) {
+
+        bricks = new ArrayList<>();
+        Json tmpList = obj.get("bricks");
+        for (int i = 0; i < tmpList.size(); i++) {
+            bricks.add(new Brick(tmpList.get(i)));
+        }
+
+        cameraPos = (int)obj.getLong("cameraPos");
+
+    }
+
     // Getter and Setter methods
     public ArrayList<Brick> getBricks() {
         return bricks;
@@ -47,7 +77,9 @@ public class Model {
         bricks.add(brick);
 
     }
+
     // Update method
     public void update() {}
+
 }
 

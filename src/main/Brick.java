@@ -21,6 +21,15 @@ public class Brick {
 
     }
 
+    Brick(Json obj) {
+
+        this.xPos = (int)obj.getLong("xPos");
+        this.yPos = (int)obj.getLong("yPos");
+        this.width = (int)obj.getLong("width");
+        this.height = (int)obj.getLong("height");
+
+    }
+
     // Getter and Setter methods
     public int getxPos() {
         return xPos;
@@ -52,6 +61,20 @@ public class Brick {
 
     public void setHeight(int height) {
         this.height = height;
+    }
+
+    // Json Marshal method
+    Json marshal() {
+
+        Json obj = Json.newObject();
+
+        obj.add("xPos", xPos);
+        obj.add("yPos", yPos);
+        obj.add("width", width);
+        obj.add("height", height);
+
+        return obj;
+
     }
 
 }
