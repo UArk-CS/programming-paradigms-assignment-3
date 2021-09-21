@@ -1,6 +1,7 @@
 // Benjamin A. Worthington
 // September 9th, 2021
-// CSCE 3193 Assignment 3 (imported from Assignment 2)
+// CSCE 3193 Assignment 3 (imported from Assignment 2) - A simple map editor where the user can
+// draw bricks and scroll left and right
 // Game.java
 
 // Import statements

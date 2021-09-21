@@ -1,6 +1,7 @@
 // Benjamin A. Worthington
 // September 18th, 2021
-// CSCE 3193 Assignment 3
+// CSCE 3193 Assignment 3 - A simple map editor where the user can
+// draw bricks and scroll left and right
 // Brick.java
 
 public class Brick {
@@ -21,6 +22,7 @@ public class Brick {
 
     }
 
+    // Brick Marshal Constructor
     Brick(Json obj) {
 
         this.xPos = (int)obj.getLong("xPos");
