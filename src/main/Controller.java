@@ -76,7 +76,18 @@ class Controller implements MouseListener, KeyListener {
     public void mouseClicked(MouseEvent e) {}
 
     // Key Event methods
-    public void keyPressed(KeyEvent e) {}
+    public void keyPressed(KeyEvent e) {
+
+        switch (e.getKeyCode()) {
+
+            // If escape key is pressed, exit the program
+            case KeyEvent.VK_ESCAPE:
+                System.exit(0);
+                break;
+
+        }
+
+    }
 
     public void keyReleased(KeyEvent e) {}
 
