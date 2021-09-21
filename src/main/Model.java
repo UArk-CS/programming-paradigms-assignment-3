@@ -9,19 +9,18 @@ import java.util.ArrayList;
 public class Model {
 
     // Declare ArrayList of Brick objects
-
     ArrayList<Brick> bricks;
-    // Default constructor
 
+    // Default constructor
     Model() {
 
         bricks = new ArrayList<>();
 
         // For UI testing purposes
-        Brick testBrick = new Brick(100, 100, 100, 50);
-        Brick testBrick2 = new Brick(225, 100, 100, 50);
-        bricks.add(testBrick);
-        bricks.add(testBrick2);
+//        Brick testBrick = new Brick(100, 100, 100, 50);
+//        Brick testBrick2 = new Brick(225, 100, 100, 50);
+//        bricks.add(testBrick);
+//        bricks.add(testBrick2);
 
     }
 
@@ -32,6 +31,14 @@ public class Model {
 
     public void setBricks(ArrayList<Brick> bricks) {
         this.bricks = bricks;
+    }
+
+    // Create new Brick object and add it to Brick ArrayList
+    public void createBrick(int x, int y, int w, int h) {
+
+        Brick brick = new Brick(x, y, w, h);
+        bricks.add(brick);
+
     }
 
     // Update method

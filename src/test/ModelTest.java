@@ -30,9 +30,9 @@ public class ModelTest {
         b3 = new Brick(200, 0, 100, 50);
 
         // Add Bricks to ArrayList
-        model.addBrick(b1);
-        model.addBrick(b2);
-        model.addBrick(b3);
+        model.getBricks().add(b1);
+        model.getBricks().add(b2);
+        model.getBricks().add(b3);
 
     }
 
