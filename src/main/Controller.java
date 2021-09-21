@@ -51,6 +51,19 @@ class Controller implements MouseListener, KeyListener {
         tempWidth = tempFinalXPos - tempXPos;
         tempHeight = tempFinalYPos - tempYPos;
 
+        // Get the absolute value of the width and height
+        tempWidth = Math.abs(tempWidth);
+        tempHeight = Math.abs(tempHeight);
+
+        // Flip the x and y coordinates if box is drawn instead of top left corner to bottom right corner
+        if (tempXPos > tempFinalXPos) {
+            tempXPos = tempFinalXPos;
+        }
+
+        if (tempYPos > tempFinalYPos) {
+            tempYPos = tempFinalYPos;
+        }
+
         // Create new Brick object with proper values
         model.createBrick(tempXPos, tempYPos, tempWidth, tempHeight);
 

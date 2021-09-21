@@ -17,10 +17,10 @@ public class Model {
         bricks = new ArrayList<>();
 
         // For UI testing purposes
-        Brick testBrick = new Brick(100, 100, 100, 50);
-        Brick testBrick2 = new Brick(225, 100, 100, 50);
-        bricks.add(testBrick);
-        bricks.add(testBrick2);
+//        Brick testBrick = new Brick(100, 100, 100, 50);
+//        Brick testBrick2 = new Brick(225, 100, 100, 50);
+//        bricks.add(testBrick);
+//        bricks.add(testBrick2);
 
     }
 
