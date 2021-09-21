@@ -74,7 +74,7 @@ class Controller implements MouseListener, KeyListener {
         }
 
         // Create new Brick object with proper values
-        model.createBrick(tempXPos, tempYPos, tempWidth, tempHeight);
+        model.createBrick(tempXPos + model.getCameraPos(), tempYPos, tempWidth, tempHeight);
 
     }
 
