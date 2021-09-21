@@ -26,6 +26,9 @@ class View extends JPanel {
 
     public void paintComponent(Graphics g) {
 
+        g.setColor(Color.white);
+        g.fillRect(0, 0, this.getWidth(), this.getHeight());
+
         for (int i = 0; i < model.getBricks().size(); i++) {
 
             Brick temp = model.getBricks().get(i);
