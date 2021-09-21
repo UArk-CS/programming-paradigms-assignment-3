@@ -1,6 +1,7 @@
 // Benjamin A. Worthington
 // September 9th, 2021
-// CSCE 3193 Assignment 3 (imported from Assignment 2)
+// CSCE 3193 Assignment 3 (imported from Assignment 2) - A simple map editor where the user can
+// draw bricks and scroll left and right
 // View.java
 
 // Import statements
@@ -24,10 +25,16 @@ class View extends JPanel {
 
     }
 
+    // View.repaint() (update method)
     public void paintComponent(Graphics g) {
+
+        // Set background color
+        g.setColor(Color.white);
+        g.fillRect(0, 0, this.getWidth(), this.getHeight());
 
         for (int i = 0; i < model.getBricks().size(); i++) {
 
+            // Get brick, set color, and paint to the screen
             Brick temp = model.getBricks().get(i);
             g.setColor(brickRed);
             g.fillRect(temp.getxPos() - model.getCameraPos(), temp.getyPos(), temp.getWidth(), temp.getHeight());
