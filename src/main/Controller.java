@@ -12,6 +12,14 @@ class Controller implements MouseListener, KeyListener {
     View view;
     Model model;
 
+    // Declaring private member variables to hold temp xPos and yPos
+    private int tempXPos;
+    private int tempYPos;
+    private int tempFinalXPos;
+    private int tempFinalYPos;
+    private int tempWidth;
+    private int tempHeight;
+
     // Controller constructor
     Controller(Model m) {
         model = m;
@@ -25,9 +33,28 @@ class Controller implements MouseListener, KeyListener {
     void update() {}
 
     // Mouse Event methods
-    public void mousePressed(MouseEvent e) {}
+    public void mousePressed(MouseEvent e) {
 
-    public void mouseReleased(MouseEvent e) {}
+        // Get x and y coordinates where mouse is pressed
+        tempXPos = e.getX();
+        tempYPos = e.getY();
+
+    }
+
+    public void mouseReleased(MouseEvent e) {
+
+        // Get x and y coordinates where mouse is released
+        tempFinalXPos = e.getX();
+        tempFinalYPos = e.getY();
+
+        // Calculate width and height
+        tempWidth = tempFinalXPos - tempXPos;
+        tempHeight = tempFinalYPos - tempYPos;
+
+        // Create new Brick object with proper values
+        model.createBrick(tempXPos, tempYPos, tempWidth, tempHeight);
+
+    }
 
     public void mouseEntered(MouseEvent e) {}
 
