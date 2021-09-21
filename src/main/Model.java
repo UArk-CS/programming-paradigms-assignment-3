@@ -9,10 +9,9 @@ import java.util.ArrayList;
 public class Model {
 
     // Declare ArrayList of Brick objects
-
     ArrayList<Brick> bricks;
-    // Default constructor
 
+    // Default constructor
     Model() {
 
         bricks = new ArrayList<>();
@@ -32,6 +31,14 @@ public class Model {
 
     public void setBricks(ArrayList<Brick> bricks) {
         this.bricks = bricks;
+    }
+
+    // Create new Brick object and add it to Brick ArrayList
+    public void createBrick(int x, int y, int w, int h) {
+
+        Brick brick = new Brick(x, y, w, h);
+        bricks.add(brick);
+
     }
 
     // Update method
