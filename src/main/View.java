@@ -30,7 +30,7 @@ class View extends JPanel {
 
             Brick temp = model.getBricks().get(i);
             g.setColor(brickRed);
-            g.fillRect(temp.getxPos(), temp.getyPos(), temp.getWidth(), temp.getHeight());
+            g.fillRect(temp.getxPos() - model.getCameraPos(), temp.getyPos(), temp.getWidth(), temp.getHeight());
 
         }
 

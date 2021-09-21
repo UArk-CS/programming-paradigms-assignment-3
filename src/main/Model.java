@@ -11,17 +11,12 @@ public class Model {
     // Declare ArrayList of Brick objects
     ArrayList<Brick> bricks;
 
+    // Declare private member variables
+    private int cameraPos;
+
     // Default constructor
     Model() {
-
         bricks = new ArrayList<>();
-
-        // For UI testing purposes
-//        Brick testBrick = new Brick(100, 100, 100, 50);
-//        Brick testBrick2 = new Brick(225, 100, 100, 50);
-//        bricks.add(testBrick);
-//        bricks.add(testBrick2);
-
     }
 
     // Getter and Setter methods
@@ -33,6 +28,18 @@ public class Model {
         this.bricks = bricks;
     }
 
+    public int getCameraPos() {
+        return cameraPos;
+    }
+
+    public void setCameraPosLeft(int cameraPos) {
+        this.cameraPos -= cameraPos;
+    }
+
+    public void setCameraPosRight(int cameraPos) {
+        this.cameraPos += cameraPos;
+    }
+
     // Create new Brick object and add it to Brick ArrayList
     public void createBrick(int x, int y, int w, int h) {
 
@@ -40,9 +47,7 @@ public class Model {
         bricks.add(brick);
 
     }
-
     // Update method
     public void update() {}
-
 }
 
