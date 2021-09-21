@@ -15,10 +15,8 @@ class Controller implements MouseListener, KeyListener {
     // Declaring private member variables to hold temp xPos and yPos
     private int tempXPos;
     private int tempYPos;
-    private int tempFinalXPos;
-    private int tempFinalYPos;
-    private int tempWidth;
-    private int tempHeight;
+    private boolean keyLeftArrow;
+    private boolean keyRightArrow;
 
     // Controller constructor
     Controller(Model m) {
@@ -30,7 +28,18 @@ class Controller implements MouseListener, KeyListener {
         view = v;
     }
 
-    void update() {}
+    void update() {
+
+        // If left or right key is pressed, move camera
+        if (keyLeftArrow) {
+            model.setCameraPosLeft(5);
+        }
+
+        if (keyRightArrow) {
+            model.setCameraPosRight(5);
+        }
+
+    }
 
     // Mouse Event methods
     public void mousePressed(MouseEvent e) {
@@ -44,12 +53,12 @@ class Controller implements MouseListener, KeyListener {
     public void mouseReleased(MouseEvent e) {
 
         // Get x and y coordinates where mouse is released
-        tempFinalXPos = e.getX();
-        tempFinalYPos = e.getY();
+        int tempFinalXPos = e.getX();
+        int tempFinalYPos = e.getY();
 
         // Calculate width and height
-        tempWidth = tempFinalXPos - tempXPos;
-        tempHeight = tempFinalYPos - tempYPos;
+        int tempWidth = tempFinalXPos - tempXPos;
+        int tempHeight = tempFinalYPos - tempYPos;
 
         // Get the absolute value of the width and height
         tempWidth = Math.abs(tempWidth);
@@ -65,7 +74,7 @@ class Controller implements MouseListener, KeyListener {
         }
 
         // Create new Brick object with proper values
-        model.createBrick(tempXPos, tempYPos, tempWidth, tempHeight);
+        model.createBrick(tempXPos + model.getCameraPos(), tempYPos, tempWidth, tempHeight);
 
     }
 
@@ -76,9 +85,60 @@ class Controller implements MouseListener, KeyListener {
     public void mouseClicked(MouseEvent e) {}
 
     // Key Event methods
-    public void keyPressed(KeyEvent e) {}
+    public void keyPressed(KeyEvent e) {
 
-    public void keyReleased(KeyEvent e) {}
+        switch (e.getKeyCode()) {
+
+            // If left arrow key is pressed, set to true
+            case KeyEvent.VK_LEFT:
+                keyLeftArrow = true;
+                break;
+
+            // If right arrow key is pressed, set to true
+            case KeyEvent.VK_RIGHT:
+                keyRightArrow = true;
+                break;
+
+            // Save map
+            case KeyEvent.VK_S:
+                System.out.println("Saving map...");
+                model.marshal().save("map.json");
+                break;
+
+            // Load map
+            case KeyEvent.VK_L:
+                System.out.println("Loading map...");
+                Json file = Json.load("map.json");
+                model.unmarshal(file);
+                break;
+
+            // If escape key is pressed, exit the program
+            case KeyEvent.VK_ESCAPE:
+                System.out.println("Exiting program...");
+                System.exit(0);
+                break;
+
+        }
+
+    }
+
+    public void keyReleased(KeyEvent e) {
+
+        switch (e.getKeyCode()) {
+
+            // If left arrow key is released, set to false
+            case KeyEvent.VK_LEFT:
+                keyLeftArrow = false;
+                break;
+
+            // If right arrow is released, set to false
+            case KeyEvent.VK_RIGHT:
+                keyRightArrow = false;
+                break;
+
+        }
+
+    }
 
     public void keyTyped(KeyEvent e) {}
 

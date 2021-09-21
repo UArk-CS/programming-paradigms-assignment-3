@@ -11,16 +11,41 @@ public class Model {
     // Declare ArrayList of Brick objects
     ArrayList<Brick> bricks;
 
+    // Declare private member variables
+    private int cameraPos;
+
     // Default constructor
     Model() {
+        bricks = new ArrayList<>();
+    }
+
+    // Marshal Model obj
+    Json marshal() {
+
+        Json obj = Json.newObject();
+
+        obj.add("cameraPos", cameraPos);
+
+        Json tmplist = Json.newList();
+        obj.add("bricks", tmplist);
+        for (int i = 0; i < bricks.size(); i++) {
+            tmplist.add(bricks.get(i).marshal());
+        }
+
+        return obj;
+
+    }
+
+    // Unmarshal Model obj
+    void unmarshal(Json obj) {
 
         bricks = new ArrayList<>();
+        Json tmpList = obj.get("bricks");
+        for (int i = 0; i < tmpList.size(); i++) {
+            bricks.add(new Brick(tmpList.get(i)));
+        }
 
-        // For UI testing purposes
-//        Brick testBrick = new Brick(100, 100, 100, 50);
-//        Brick testBrick2 = new Brick(225, 100, 100, 50);
-//        bricks.add(testBrick);
-//        bricks.add(testBrick2);
+        cameraPos = (int)obj.getLong("cameraPos");
 
     }
 
@@ -31,6 +56,18 @@ public class Model {
 
     public void setBricks(ArrayList<Brick> bricks) {
         this.bricks = bricks;
+    }
+
+    public int getCameraPos() {
+        return cameraPos;
+    }
+
+    public void setCameraPosLeft(int cameraPos) {
+        this.cameraPos -= cameraPos;
+    }
+
+    public void setCameraPosRight(int cameraPos) {
+        this.cameraPos += cameraPos;
     }
 
     // Create new Brick object and add it to Brick ArrayList
