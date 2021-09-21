@@ -11,6 +11,7 @@ class View extends JPanel {
 
     // Declaring member variables
     Model model;
+    Color brickRed = new Color(203, 65, 84);
 
     // View constructor
     View(Controller c, Model m) {
@@ -23,6 +24,16 @@ class View extends JPanel {
 
     }
 
-    public void paintComponent(Graphics g) {}
+    public void paintComponent(Graphics g) {
+
+        for (int i = 0; i < model.getBricks().size(); i++) {
+
+            Brick temp = model.getBricks().get(i);
+            g.setColor(brickRed);
+            g.fillRect(temp.getxPos(), temp.getyPos(), temp.getWidth(), temp.getHeight());
+
+        }
+
+    }
 
 }
