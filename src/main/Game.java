@@ -40,6 +40,9 @@ public class Game extends JFrame {
 
         // Instantiating new game object and calling the run method
         Game g = new Game();
+        System.out.println("Press esc to Quit the game");
+        System.out.println("Press s to save your map");
+        System.out.println("Press l to load your map");
         g.run();
 
     }
